@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÉMOIRE | Regalos con significado</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --crema: #F8F5F0;
+            --beige: #E8DED2;
+            --taupe: #B7A394;
+            --marron: #493A32;
+            --dorado: #B69A72;
+            --blanco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--crema);
+            color: var(--marron);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVEGACION */
+
+        header {
+            width: 100%;
+            padding: 24px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--crema);
+            border-bottom: 1px solid #e8ded2;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 34px;
+            font-weight: 600;
+            letter-spacing: 6px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dorado);
+        }
+
+        /* PORTADA */
+
+        .hero {
+            min-height: 610px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(248, 245, 240, 0.45),
+                    rgba(248, 245, 240, 0.75)
+                ),
+                var(--beige);
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .etiqueta {
+            font-size: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #8c7564;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(48px, 7vw, 85px);
+            line-height: 1.05;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            font-style: italic;
+            color: #9e8065;
+        }
+
+        .hero p {
+            max-width: 500px;
+            margin: 0 auto 35px;
+            font-size: 12px;
+            line-height: 2;
+            color: #75655b;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 16px 32px;
+            background-color: var(--marron);
+            color: var(--blanco);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .boton:hover {
+            background-color: var(--dorado);
+            transform: translateY(-2px);
+        }
+
+        /* COLECCION */
+
+        .coleccion {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .subtitulo {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            margin-bottom: 18px;
+        }
+
+        .titulo-seccion {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(35px, 5vw, 52px);
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+
+        .descripcion-seccion {
+            max-width: 500px;
+            margin: 0 auto 55px;
+            font-size: 12px;
+            line-height: 2;
+            color: #83756b;
+        }
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .producto {
+            background-color: var(--blanco);
+            transition: transform 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-6px);
+        }
+
+        .producto img {
+            display: block;
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background-color: var(--beige);
+        }
+
+        .producto-info {
+            padding: 24px 20px 28px;
+        }
+
+        .producto-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 27px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .producto-info p {
+            font-size: 11px;
+            line-height: 1.9;
+            color: #83756b;
+            margin-bottom: 18px;
+        }
+
+        .enlace-producto {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--dorado);
+            padding-bottom: 5px;
+        }
+
+        /* ESENCIA DE LA MARCA */
+
+        .esencia {
+            background-color: var(--beige);
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .esencia-contenido {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .esencia h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(38px, 5vw, 58px);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .esencia h2 span {
+            font-style: italic;
+            color: #987b63;
+        }
+
+        .esencia p {
+            font-size: 12px;
+            line-height: 2.2;
+            color: #75655b;
+        }
+
+        .frase {
+            margin-top: 35px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            font-style: italic;
+            color: #8e725a;
+        }
+
+        /* CONTACTO */
+
+        .contacto {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(38px, 5vw, 56px);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .contacto p {
+            max-width: 460px;
+            margin: 0 auto 30px;
+            font-size: 12px;
+            line-height: 2;
+            color: #83756b;
+        }
+
+        /* PIE DE PAGINA */
+
+        footer {
+            padding: 35px 8%;
+            text-align: center;
+            border-top: 1px solid #e8ded2;
+        }
+
+        footer .logo {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 9px;
+            letter-spacing: 1px;
+            color: #83756b;
+            line-height: 2;
+        }
+
+        /* ADAPTACION A CELULARES */
+
+        @media (max-width: 800px) {
+            header {
+                padding: 20px 5%;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .logo {
+                font-size: 30px;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+
+            nav a {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 70px 6%;
+            }
+
+            .coleccion,
+            .esencia,
+            .contacto {
+                padding: 75px 6%;
+            }
+
+            .productos {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .producto img {
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .producto img {
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 47px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">MÉMOIRE</a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#coleccion">Colección</a>
+            <a href="#nosotros">Nuestra esencia</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <div class="etiqueta">Detalles que cuentan historias</div>
+
+                <h1>
+                    Hay recuerdos que merecen
+                    <span>quedarse.</span>
+                </h1>
+
+                <p>
+                    Creamos regalos personalizados que transforman tus
+                    momentos favoritos en recuerdos para conservar toda la vida.
+                    Porque los sentimientos más bonitos merecen algo especial.
+                </p>
+
+                <a href="#coleccion" class="boton">
+                    Descubrir colección
+                </a>
+            </div>
+        </section>
+
+        <section class="coleccion" id="coleccion">
+            <div class="subtitulo">Nuestra selección</div>
+
+            <h2 class="titulo-seccion">
+                Un detalle, mil emociones
+            </h2>
+
+            <p class="descripcion-seccion">
+                Cada creación está hecha para celebrar personas, historias
+                y momentos que ocupan un lugar especial en tu corazón.
+            </p>
+
+            <div class="productos">
+
+                <article class="producto">
+                    <img
+                        src="imagenes/cuadro.jpg.jpeg"
+                        alt="Cuadro personalizado con fotografías"
+                    >
+
+                    <div class="producto-info">
+                        <h3>Recuerdos enmarcados</h3>
+
+                        <p>
+                            Tus fotografías favoritas convertidas en una
+                            pieza única para decorar y recordar.
+                        </p>
+
+                        <a
+                            class="enlace-producto"
+                            href="https://wa.me/573002800153?text=Hola%2C%20quiero%20informacion%20sobre%20los%20cuadros%20personalizados%20de%20MEMOIRE"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Personalizar
+                        </a>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <img
+                        src="imagenes/regalo.jpg.jpeg"
+                        alt="Regalo especial personalizado"
+                    >
+
+                    <div class="producto-info">
+                        <h3>Detalles con amor</h3>
+
+                        <p>
+                            Sorpresas creadas con dedicación para expresar
+                            eso que a veces las palabras no pueden decir.
+                        </p>
+
+                        <a
+                            class="enlace-producto"
+                            href="https://wa.me/573002800153?text=Hola%2C%20quiero%20informacion%20sobre%20los%20regalos%20personalizados%20de%20MEMOIRE"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Crear mi regalo
+                        </a>
+                    </div>
+                </article>
+
+                <article class="producto">
+                    <img
+                        src="imagenes/personalizado.jpg.jpeg"
+                        alt="Detalle personalizado para una persona especial"
+                    >
+
+                    <div class="producto-info">
+                        <h3>Hecho para ti</h3>
+
+                        <p>
+                            Diseños personalizados que reflejan tu historia
+                            y hacen que cada regalo sea irrepetible.
+                        </p>
+
+                        <a
+                            class="enlace-producto"
+                            href="https://wa.me/573002800153?text=Hola%2C%20quiero%20crear%20un%20detalle%20personalizado%20con%20MEMOIRE"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Diseñar mi detalle
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="esencia" id="nosotros">
+            <div class="esencia-contenido">
+                <div class="subtitulo">La esencia de MÉMOIRE</div>
+
+                <h2>
+                    No son solo regalos.
+                    <span>Son historias que permanecen.</span>
+                </h2>
+
+                <p>
+                    Creemos que los pequeños detalles pueden guardar los
+                    sentimientos más grandes. Por eso, cada creación de
+                    MÉMOIRE nace de una historia, una persona y un momento
+                    que merece ser recordado.
+                </p>
+
+                <div class="frase">
+                    Para regalar, para recordar, para siempre.
+                </div>
+            </div>
+        </section>
+
+        <section class="contacto" id="contacto">
+            <div class="subtitulo">Hagamos algo especial</div>
+
+            <h2>Tu idea merece hacerse realidad.</h2>
+
+            <p>
+                Cuéntanos qué tienes en mente y creemos juntos un detalle
+                único para esa persona que significa tanto para ti.
+            </p>
+
+            <a
+                href="https://wa.me/573002800153?text=Hola%2C%20M%C3%89MOIRE.%20Quiero%20informacion%20sobre%20sus%20regalos%20personalizados."
+                class="boton"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Escríbenos por WhatsApp
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">MÉMOIRE</div>
+
+        <p>
+            DETALLES QUE CUENTAN HISTORIAS
+        </p>
+
+        <p>
+            Hecho con amor y pensado para durar.
+        </p>
+
+        <p>
+            © 2026 MÉMOIRE. Todos los derechos reservados.
+        </p>
+    </footer>
+
+</body>
+</html>
